@@ -2,7 +2,7 @@
 // @name        跳转链接直达
 // @description 知乎,CSDN,简书,开源中国,掘金 跳转链接直达
 // @namespace   https://github.com/golyu/directTo/issues
-// @version     0.9.0
+// @version     0.9.1
 // @author      g
 // @include     *://link.zhihu.com/*
 // @include     *://link.csdn.net/*
@@ -35,8 +35,8 @@ class Base implements Website {
 
   getToUrl(href: string): string {
     const result = this.regexpDetails.exec(href);
-    if (result && result.length > 0) {
-      return decodeURIComponent(result[0]);
+    if (result && result.length > 1) {
+      return decodeURIComponent(result[1]);
     }
     return "";
   }
